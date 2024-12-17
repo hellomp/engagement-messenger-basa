@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    SN_CSM_EC.init({
+      moduleID: "https://basadev.service-now.com/#7c14d92c87dada10338385580cbb352e",
+      loadFeature: SN_CSM_EC.loadEMFeature()
+    });
+  </script>
+  <script>
+    var language = "pb";
+    function languageFeatureContext() {
+      return {
+        feature: "LANGUAGE",
+        openOnLoad: true,
+        params: {
+          "lang": language
+        }
+      }
+    }
+    var langFeature = {
+      "feature": "LANGUAGE",
+      "static": {},
+      "params": {
+        "lang": "lang"
+      }
+    };
+    SN_CSM_EC.addNewFeatureContext(langFeature);
+    SN_CSM_EC.init({
+      moduleID: "https://basadev.service-now.com/#7c14d92c87dada10338385580cbb352e",
+      loadFeature: languageFeatureContext()
+    });
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
